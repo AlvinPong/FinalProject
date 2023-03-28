@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     }
     public void MainMenu()
     {
+        SaveGame();
         if (MainMenuScene == "")
             return;
         SceneManager.LoadScene(MainMenuScene);

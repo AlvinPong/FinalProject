@@ -6,7 +6,7 @@ public class PauseManager : MonoBehaviour
 {
     
     public GameObject PauseMenu;
-    protected bool IsPause = false;
+    public bool IsPause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class PauseManager : MonoBehaviour
         {
             LoadPauseMenu();
         }
-        if (IsPause == true && Input.GetKeyDown(KeyCode.O)) 
+        if (IsPause == true && Input.GetKeyDown(KeyCode.R)) 
         {
             UnloadPauseMenu();
         }

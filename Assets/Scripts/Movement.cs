@@ -50,10 +50,11 @@ public class Movement : MonoBehaviour
     {
         get { return _isFallingAnim; }
     }
-    public bool IsDamaged
-    {
-        get { return _isDamaged; }
-    }
+    //public bool IsDamaged
+    //{
+    //    get { return _isDamaged; }
+    //}
+
     //protected variables
     protected Rigidbody2D _rigidBody;
     protected Vector2 _inputDirection;
@@ -81,7 +82,7 @@ public class Movement : MonoBehaviour
     private Health _health;
     private bool _disableInput = false;
 
-    
+    private PauseManager _pauseManager;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +95,11 @@ public class Movement : MonoBehaviour
             _health.OnHit += Hit;
             _health.OnHitReset += ResetMove;
         }
-        
+
+        _pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
+
+        if (!_pauseManager)
+            Debug.Log("no pause manager");
     }
     private void OnDisable()
     {
@@ -151,7 +156,20 @@ public class Movement : MonoBehaviour
     }
     protected virtual void HandleMovement()
     {
-        
+        if (_pauseManager.IsPause) 
+        {
+            _isRunning = false;
+            _isJumpingAnim = false;
+            _isFallingAnim = false;
+            _rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+            return; 
+        }
+        if (!_pauseManager.IsPause)
+        {
+            _rigidBody.constraints = RigidbodyConstraints2D.None;
+            _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+
         if (_disableInput)
         {
             //_isDamaged = true;
@@ -212,6 +230,8 @@ public class Movement : MonoBehaviour
     }
     protected virtual void DoJump()
     {
+        if (_pauseManager.IsPause)
+            return;
         if (_disableInput)
             return;
         if (_rigidBody == null) return;

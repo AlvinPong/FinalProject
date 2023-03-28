@@ -12,17 +12,24 @@ public class WeaponHandler : MonoBehaviour
     public bool _tryShoot = false;
 
     protected Movement _movement;
+
+    private PauseManager _pauseManager;
     // Start is called before the first frame update
     void Start()
     {
         _movement = GetComponent<Movement>();
-        
+        _pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (_pauseManager.IsPause)
+        {
+            _tryShoot = false;
+            return;
+        }
+        if (Input.GetButtonDown("Fire1"))
             _tryShoot = true;
         if (Input.GetButtonUp("Fire1"))
             _tryShoot = false;
@@ -62,5 +69,10 @@ public class WeaponHandler : MonoBehaviour
             CurrentWeapon.transform.localScale = Vector3.one;
             CurrentWeapon._isFlip = isFlip;
         }
+    }
+    public void EquipWeapon(Weapon weapon)
+    {
+        if (weapon != null) 
+            CurrentWeapon = weapon;
     }
 }

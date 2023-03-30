@@ -304,7 +304,7 @@ MonoBehaviour:
   DamageForce: 10
   GroundLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   MaxSlopeAngle: 60
   Default: {fileID: 6200000, guid: f92c74d5e3d76e74dbe2dc93a7201ad7, type: 2}
   FullFriction: {fileID: 6200000, guid: 0ebbd28569792c14b92bd1b73be9b719, type: 2}
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDead: 0
-  DeathParticles: {fileID: 0}
+  DeathParticles: {fileID: 7807831175002717878, guid: 4838a6ce6e42c6a4fa77d9b8f67e2a09, type: 3}
   _canDamage: 1
   Invulnerable:
     Duration: 1
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa68b2eed62c174ca147f68acdb04be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentWeapon: {fileID: 0}
+  CurrentWeapon: {fileID: 1985041922454589931, guid: 15d4c79cd3fd1b74f9a3646c6938c723, type: 3}
   RightWeaponPos: {fileID: 681112882}
   LeftWeaponPos: {fileID: 49578746}
   _tryShoot: 0

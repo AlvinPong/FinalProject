@@ -156,19 +156,23 @@ public class Movement : MonoBehaviour
     }
     protected virtual void HandleMovement()
     {
-        if (_pauseManager.IsPause) 
+        if (_pauseManager)
         {
-            _isRunning = false;
-            _isJumpingAnim = false;
-            _isFallingAnim = false;
-            _rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
-            return; 
+            if (_pauseManager.IsPause)
+            {
+                _isRunning = false;
+                _isJumpingAnim = false;
+                _isFallingAnim = false;
+                _rigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                return;
+            }
+            if (!_pauseManager.IsPause)
+            {
+                _rigidBody.constraints = RigidbodyConstraints2D.None;
+                _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
         }
-        if (!_pauseManager.IsPause)
-        {
-            _rigidBody.constraints = RigidbodyConstraints2D.None;
-            _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
+        else
 
         if (_disableInput)
         {
@@ -230,8 +234,12 @@ public class Movement : MonoBehaviour
     }
     protected virtual void DoJump()
     {
-        if (_pauseManager.IsPause)
-            return;
+        if (_pauseManager)
+        {
+            if (_pauseManager.IsPause)
+                return;
+        }
+        else
         if (_disableInput)
             return;
         if (_rigidBody == null) return;

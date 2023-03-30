@@ -21,11 +21,14 @@ public class mover : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (_pauseManager.IsPause)
+        if (_pauseManager)
         {
-
-            return;
+            if (_pauseManager.IsPause)
+            {
+                return;
+            }
         }
+        
         Vector2 TargetMovePos = transform.position;
         if (Direction)
         {

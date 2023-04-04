@@ -11,7 +11,6 @@ public class Health : MonoBehaviour
     public delegate void ResetEvent();
     public ResetEvent OnHitReset;
 
-    public bool IsDead = false;
     //public
     public float CurrentHealth
     {
@@ -58,11 +57,5 @@ public class Health : MonoBehaviour
         //Debug.Log("You Died");
         GameObject.Instantiate(DeathParticles,transform.position, transform.rotation);
         Destroy(this.gameObject);
-        Dead();
-    }
-
-    public void Dead()
-    {
-        IsDead = true;
     }
 }

@@ -24,7 +24,9 @@ public class WeaponHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckPause();
+        if (_pauseManager.IsPause)
+            _tryShoot = false;
+        else
         if (Input.GetButtonDown("Fire1"))
             _tryShoot = true;
         if (Input.GetButtonUp("Fire1"))
@@ -70,15 +72,5 @@ public class WeaponHandler : MonoBehaviour
     {
         if (weapon != null) 
             CurrentWeapon = weapon;
-    }
-    public void CheckPause()
-    {
-        if (!_pauseManager)
-            return;
-        if (_pauseManager.IsPause)
-        {
-            _tryShoot = false;
-            return;
-        }
     }
 }

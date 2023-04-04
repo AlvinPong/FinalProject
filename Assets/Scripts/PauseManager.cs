@@ -10,7 +10,8 @@ public class PauseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!PauseMenu)
+            return;
         if (PauseMenu != null)
         {
             PauseMenu.SetActive(false);
@@ -31,7 +32,7 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void LoadPauseMenu()
+    private void LoadPauseMenu()
     {
         if (PauseMenu != null)
         {
@@ -39,7 +40,7 @@ public class PauseManager : MonoBehaviour
             IsPause = true;
         }
     }
-    public void UnloadPauseMenu()
+    private void UnloadPauseMenu()
     {
         if(PauseMenu != null)
         {

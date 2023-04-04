@@ -11,8 +11,11 @@ public class TrapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Trap == null)
+            return;
         Trap.SetActive(false);
-
+        if (SecondTrap == null)
+            return;
         SecondTrap.SetActive(false);
     }
 
@@ -28,7 +31,7 @@ public class TrapManager : MonoBehaviour
         if (Trap == null)
             return;
         Trap.SetActive(true);
-        Debug.Log("Activate Trap");
+        //Debug.Log("Activate Trap");
         Invoke("ActivateSecondTrap", Timer);
         
     }
@@ -37,6 +40,6 @@ public class TrapManager : MonoBehaviour
         if (SecondTrap == null) 
             return;
         SecondTrap.SetActive(true);
-        Debug.Log("Activate Second Trap");
+        //Debug.Log("Activate Second Trap");
     }
 }

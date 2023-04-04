@@ -98,8 +98,6 @@ public class Movement : MonoBehaviour
 
         _pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
 
-        if (!_pauseManager)
-            Debug.Log("no pause manager");
     }
     private void OnDisable()
     {

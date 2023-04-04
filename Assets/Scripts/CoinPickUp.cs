@@ -22,7 +22,7 @@ public class CoinPickUp : MonoBehaviour
                 return;
             _gameManager.CoinsCollected++;
             _scoreManager.AddScore(CoinScore);
-            Debug.Log("Coin Picked Up " + _scoreManager.CoinAmount);
+            //Debug.Log("Coin Picked Up " + _scoreManager.CoinAmount);
             Destroy(gameObject);
         }
         

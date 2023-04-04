@@ -31,10 +31,11 @@ public class WeaponHandler : MonoBehaviour
             _tryShoot = true;
         if (Input.GetButtonUp("Fire1"))
             _tryShoot = false;
-
+        if (!CurrentWeapon)
+            return;
         if (_tryShoot)
             CurrentWeapon.Shoot();
-
+        
         HandleWeapon();
     }
 

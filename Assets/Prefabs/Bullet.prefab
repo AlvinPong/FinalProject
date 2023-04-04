@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   Speed: 500
-  PushForce: 5000
+  PushForce: 3000
   LifeTime:
     Duration: 3
     CurrentProgress: 0

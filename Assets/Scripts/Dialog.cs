@@ -57,5 +57,6 @@ public class Dialog : MonoBehaviour
         if (!col.gameObject.CompareTag("Player"))
             return;
         _inRange = false;
+        Dialogpanel.SetActive(false);
     }
 }

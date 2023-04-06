@@ -257,7 +257,7 @@ public class Movement : MonoBehaviour
         CoyoteTime.StopCooldown();
         if (_canDoubleJump == true)
         {
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, JumpForce * 0.75f);
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, JumpForce * 0.8f);
             _canDoubleJump = false;
             JumpCount--;
         }

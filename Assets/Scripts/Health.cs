@@ -22,7 +22,13 @@ public class Health : MonoBehaviour
 
     public Cooldown Invulnerable;
     //private
-    private float _currentHealth = 10f;
+    public float _currentHealth = 10f;
+
+    public bool IsDamaged
+    {
+        get { return _IsDamaged; }
+    }
+    protected bool _IsDamaged = false;
 
     private void Update()
     {
@@ -35,6 +41,7 @@ public class Health : MonoBehaviour
         if (Invulnerable.IsOnCooldown && _canDamage == false)
             return;
         _canDamage = true;
+        _IsDamaged = false;
         OnHitReset?.Invoke();
     }
     public void Damage(float damageAmount, GameObject source)
@@ -42,6 +49,7 @@ public class Health : MonoBehaviour
         if (!_canDamage) 
             return;
         _currentHealth -= damageAmount;
+        _IsDamaged = true;
         if (_currentHealth <= 0)
         {
             Die();
@@ -55,6 +63,8 @@ public class Health : MonoBehaviour
     public void Die()
     {
         //Debug.Log("You Died");
+        if (DeathParticles == null)
+            return;
         GameObject.Instantiate(DeathParticles,transform.position, transform.rotation);
         Destroy(this.gameObject);
     }

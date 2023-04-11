@@ -6,6 +6,7 @@ public class AnimationHandler : MonoBehaviour
 {
     private Animator _animator;
     private Movement _movement;
+    private Health _health;
 
     private Vector3 _initialScale = Vector3.one;
     private Vector3 _flipScale = Vector3.one;
@@ -15,6 +16,7 @@ public class AnimationHandler : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _movement = transform.parent.GetComponent<Movement>();
+        _health = transform.parent.GetComponent<Health>();
 
         _initialScale = transform.localScale;
         _flipScale = new Vector3(-_initialScale.x,_initialScale.y,_initialScale.z);
@@ -46,6 +48,8 @@ public class AnimationHandler : MonoBehaviour
         _animator.SetBool("IsRunning", _movement.IsRunning);
         _animator.SetBool("IsJumping", _movement.IsJumpingAnim);
         _animator.SetBool("IsFalling", _movement.IsFallingAnim);
-        //_animator.SetBool("IsDamaged", _movement.IsDamaged);
+        if (_health == null)
+            return;
+        _animator.SetBool("IsDamaged", _health.IsDamaged);
     }
 }

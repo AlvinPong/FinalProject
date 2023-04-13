@@ -41,9 +41,12 @@ public class Projectile : MonoBehaviour
         if (!((TargetLayerMask.value & (1 << col.gameObject.layer)) > 0))
             return;
         Rigidbody2D targetRigidbody = col.gameObject.GetComponent<Rigidbody2D>();
-
+        
+        if (targetRigidbody == null)
+            return;
         if (targetRigidbody != null)
         {
+            targetRigidbody.mass = 1f;
             targetRigidbody.AddForce((col.transform.position - transform.position).normalized * PushForce);
         }
 

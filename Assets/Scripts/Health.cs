@@ -64,7 +64,10 @@ public class Health : MonoBehaviour
     {
         //Debug.Log("You Died");
         if (DeathParticles == null)
+        {
+            Destroy(this.gameObject);
             return;
+        }
         GameObject.Instantiate(DeathParticles,transform.position, transform.rotation);
         Destroy(this.gameObject);
     }

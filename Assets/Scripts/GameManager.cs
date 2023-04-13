@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int CoinsCollected = 0;
 
     public int SavedCoins = 0;
+
+    public GameObject Button;
     //public void GoToNextLevel()
     //{
     //    SaveGame();
@@ -46,6 +48,22 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadGame();
+        if (Button == null) 
+            return;
+        Button.SetActive(false);
+        
+    }
+    private void Update()
+    {
+        if (Button == null) return;
+        if (CoinsCollected >= 100)
+        {
+            Button.SetActive(true);
+        }
+        else
+        {
+            Button.SetActive(false);
+        }
     }
     public void Retry()
     {

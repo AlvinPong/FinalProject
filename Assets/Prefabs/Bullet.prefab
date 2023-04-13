@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8411319218140211485}
   - component: {fileID: 8411319218140211484}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8411319220069311553}
   - component: {fileID: 8411319220069311558}
   - component: {fileID: 8411319220069311559}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   Speed: 500
-  PushForce: 3000
+  PushForce: 4000
   LifeTime:
     Duration: 3
     CurrentProgress: 0

@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     public Cooldown LifeTime;
     public LayerMask TargetLayerMask;
 
-    public Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,6 @@ public class Projectile : MonoBehaviour
             return;
         if (targetRigidbody != null)
         {
-            targetRigidbody.mass = 1f;
             targetRigidbody.AddForce((col.transform.position - transform.position).normalized * PushForce);
         }
 

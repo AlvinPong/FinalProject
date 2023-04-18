@@ -10,6 +10,9 @@ public class mover : MonoBehaviour
     //Direction = true goes up
     //Direction = false goes down
 
+    public LayerMask TargetLayerMask;
+    public float CheckDistance = 1f;
+
     private PauseManager _pauseManager;
 
     // Start is called before the first frame update
@@ -21,6 +24,7 @@ public class mover : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        Check();
         if (_pauseManager)
         {
             if (_pauseManager.IsPause)
@@ -40,5 +44,18 @@ public class mover : MonoBehaviour
         }
             
         transform.position = TargetMovePos;
+    }
+    public void Check()
+    {
+        bool CheckUp = Physics2D.Raycast(transform.position, Vector2.up, CheckDistance, TargetLayerMask);
+        bool CheckDown = Physics2D.Raycast(transform.position, Vector2.down, CheckDistance, TargetLayerMask);
+        if (CheckUp == true)
+        {
+            Direction = false;
+        }
+        if (CheckDown == true)
+        {
+            Direction = true;
+        }
     }
 }

@@ -284,6 +284,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 160107939}
     - target: {fileID: 5797628594112623418, guid: 975310fff37d0af4fb358b509164c317, type: 3}
+      propertyPath: CoinTarget
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797628594112623418, guid: 975310fff37d0af4fb358b509164c317, type: 3}
       propertyPath: MainMenuScene
       value: SpecialStage
       objectReference: {fileID: 0}

@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 8190167986496926010}
   - component: {fileID: 8190167986496926005}
   - component: {fileID: 8190167986496926004}
-  - component: {fileID: 8190167986496926011}
   m_Layer: 10
   m_Name: Blue Slime
   m_TagString: Untagged
@@ -163,10 +162,10 @@ MonoBehaviour:
   CheckDistance: 1
   Acceleration: 2
   JumpForce: 50
-  DamageForce: 10
+  DamageForce: 0
   GroundLayerMask:
     serializedVersion: 2
-    m_Bits: 960
+    m_Bits: 5056
   MaxSlopeAngle: 90
   Default: {fileID: 0}
   FullFriction: {fileID: 0}
@@ -193,7 +192,7 @@ MonoBehaviour:
   DeathParticles: {fileID: 0}
   _canDamage: 1
   Invulnerable:
-    Duration: 1
+    Duration: 0.1
     CurrentProgress: 0
   _currentHealth: 10
 --- !u!114 &8190167986496926004
@@ -212,23 +211,6 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &8190167986496926011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8190167986496926000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 876b20035d9052541ad429d71ba87a64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  ResetMass: 0.3
-  _resetMass: 0.3
 --- !u!1001 &8190167984822717966
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public string CurrentSceneName = "";
     public string MainMenuScene = "";
 
+    public int CoinTarget = 0;
     public int CoinsCollected = 0;
 
     public int SavedCoins = 0;
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Button == null) return;
-        if (CoinsCollected >= 100)
+        if (CoinsCollected >= CoinTarget)
         {
             Button.SetActive(true);
         }

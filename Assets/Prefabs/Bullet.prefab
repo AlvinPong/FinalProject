@@ -186,4 +186,4 @@ MonoBehaviour:
     CurrentProgress: 0
   TargetLayerMask:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 9472

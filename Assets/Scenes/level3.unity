@@ -1867,6 +1867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObject: {fileID: 1180204498559480822, guid: dab86a732a265cb449befdcc24523598, type: 3}
+  StartingInterval: 1.5
   SpawnInterval: 3
   SpawnTimer: 0
 --- !u!4 &361150526
@@ -3821,6 +3822,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   Direction: 0
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  CheckDistance: 1
 --- !u!1 &845460272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,6 +3856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObject: {fileID: 1180204498559480822, guid: dab86a732a265cb449befdcc24523598, type: 3}
+  StartingInterval: 0
   SpawnInterval: 3
   SpawnTimer: 0
 --- !u!4 &845460274
@@ -3885,7 +3891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5797628594112623418, guid: 975310fff37d0af4fb358b509164c317, type: 3}
       propertyPath: NextSceneName
-      value: MainMenu
+      value: level4
       objectReference: {fileID: 0}
     - target: {fileID: 5797628594112623418, guid: 975310fff37d0af4fb358b509164c317, type: 3}
       propertyPath: CurrentSceneName
@@ -18227,6 +18233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   Direction: 0
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  CheckDistance: 1
 --- !u!1 &2120346752
 GameObject:
   m_ObjectHideFlags: 0

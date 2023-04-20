@@ -7,6 +7,7 @@ public class DSManager : MonoBehaviour
     public GameObject DeathScreen;
     private Health _health;
     public float Cooldown = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,10 @@ public class DSManager : MonoBehaviour
         if (_health.CurrentHealth <= 0)
         {
             Invoke("ActivateScreen", Cooldown);
+        }
+        if (DeathScreen != null && Input.GetKeyDown(KeyCode.Z))
+        {
+
         }
     }
 

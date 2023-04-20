@@ -5679,7 +5679,7 @@ RectTransform:
   - {fileID: 1270296463}
   - {fileID: 1418512447}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7124,6 +7124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 100
   Direction: 1
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  CheckDistance: 1
 --- !u!4 &1098955722
 Transform:
   m_ObjectHideFlags: 0
@@ -8643,6 +8647,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 15
   Direction: 1
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  CheckDistance: 1
 --- !u!4 &1654030271
 Transform:
   m_ObjectHideFlags: 0
@@ -9512,7 +9520,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053725898
 PrefabInstance:

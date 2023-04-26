@@ -10,8 +10,10 @@ public class Projectile : MonoBehaviour
     public float PushForce = 10f;
     public Cooldown LifeTime;
     public LayerMask TargetLayerMask;
+    public AudioClip BulletSoundEffect;
 
     protected Rigidbody2D _rigidbody;
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,8 @@ public class Projectile : MonoBehaviour
 
         LifeTime.StartCooldown();
         _rigidbody.AddRelativeForce(new Vector2(Speed, 0f));
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,12 +45,16 @@ public class Projectile : MonoBehaviour
         if (!((TargetLayerMask.value & (1 << col.gameObject.layer)) > 0))
             return;
         Rigidbody2D targetRigidbody = col.gameObject.GetComponent<Rigidbody2D>();
-        
+
         if (targetRigidbody == null)
             return;
         if (targetRigidbody != null)
         {
             targetRigidbody.AddForce((col.transform.position - transform.position).normalized * PushForce);
+        }
+        if (_audioSource != null && BulletSoundEffect != null)
+        {
+            _audioSource.PlayOneShot(BulletSoundEffect);
         }
 
         Health targetHealth = col.gameObject.GetComponent<Health>();
@@ -56,6 +64,6 @@ public class Projectile : MonoBehaviour
             targetHealth.Damage(Damage, gameObject);
         }
 
-        Die();
+        Invoke("Die", 0.01f);
     }
 }

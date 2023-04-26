@@ -166,6 +166,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 448
   MaxSlopeAngle: 90
+  JumpSoundEffect: {fileID: 0}
   Default: {fileID: 0}
   FullFriction: {fileID: 0}
   NoFriction: {fileID: 0}
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a917fbf994ad54aa3c2919353a890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 5
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 8

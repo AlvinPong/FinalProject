@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     //public string Scene = "";
 
     protected GameManager _gameManager;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int AddAmount)
     {
         CoinAmount += AddAmount;
-
+        
         //if (CoinAmount >= TargetScore)
         //{
         //    _gameManager.LoadScene();

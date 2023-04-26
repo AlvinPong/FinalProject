@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -11,12 +12,14 @@ public class Movement : MonoBehaviour
     public bool CheckRight = false;
     public bool CheckLeft = false;
     public float CheckDistance = 1f;
-    //public exposed variables for tweaking
+    
     public float Acceleration = 10f;
     public float JumpForce = 50f;
     public float DamageForce = 10f;
     public LayerMask GroundLayerMask;
     public float MaxSlopeAngle = 90f;
+
+    public AudioClip JumpSoundEffect;
 
     public PhysicsMaterial2D Default;
     public PhysicsMaterial2D FullFriction;
@@ -83,6 +86,7 @@ public class Movement : MonoBehaviour
     private bool _disableInput = false;
 
     private PauseManager _pauseManager;
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -97,7 +101,7 @@ public class Movement : MonoBehaviour
         }
 
         _pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
-
+        _audioSource = GetComponent<AudioSource>();
     }
     private void OnDisable()
     {
@@ -261,6 +265,7 @@ public class Movement : MonoBehaviour
             _canDoubleJump = false;
             JumpCount--;
         }
+        _audioSource.PlayOneShot(JumpSoundEffect);
         //if (JumpCount != 0){
         //if (IsGrounded)
         //{

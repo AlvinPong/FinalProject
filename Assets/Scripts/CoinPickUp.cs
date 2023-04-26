@@ -8,10 +8,14 @@ public class CoinPickUp : MonoBehaviour
 
     public int CoinScore = 1;
     private ScoreManager _scoreManager;
+
+    public AudioClip CoinSoundEffect;
+    private AudioSource _audioSource;
     void Start()
     {
         _scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         _gameManager = FindObjectOfType<GameManager>();
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
     public void OnTriggerEnter2D(Collider2D col)
     {
@@ -22,10 +26,17 @@ public class CoinPickUp : MonoBehaviour
                 return;
             _gameManager.CoinsCollected++;
             _scoreManager.AddScore(CoinScore);
+
+            if (_audioSource != null && CoinSoundEffect != null)
+            {
+                _audioSource.PlayOneShot(CoinSoundEffect);
+            }
             //Debug.Log("Coin Picked Up " + _scoreManager.CoinAmount);
-            Destroy(gameObject);
+            Invoke("Death", 0.1f);
         }
-        
-        
+    }
+    public void Death()
+    {
+        Destroy(this.gameObject);
     }
 }

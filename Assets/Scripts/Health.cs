@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public AudioClip DamageSoundEffect;
+    public AudioClip DeathSoundEffect;
+    private AudioSource _audioSource;
+
     public delegate void HitEvent(GameObject source);
     public HitEvent OnHit;
 
@@ -30,6 +34,10 @@ public class Health : MonoBehaviour
     }
     protected bool _IsDamaged = false;
 
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         ResetInvulnerble();
@@ -46,13 +54,17 @@ public class Health : MonoBehaviour
     }
     public void Damage(float damageAmount, GameObject source)
     {
-        if (!_canDamage) 
+        if (!_canDamage)
             return;
         _currentHealth -= damageAmount;
         _IsDamaged = true;
         if (_currentHealth <= 0)
         {
             Die();
+        }
+        if (_audioSource != null && DamageSoundEffect != null)
+        {
+            _audioSource.PlayOneShot(DamageSoundEffect);
         }
 
         Invulnerable.StartCooldown();
@@ -68,7 +80,15 @@ public class Health : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        GameObject.Instantiate(DeathParticles,transform.position, transform.rotation);
+        GameObject.Instantiate(DeathParticles, transform.position, transform.rotation);
+        if (_audioSource != null && DeathSoundEffect != null)
+        {
+            _audioSource.PlayOneShot(DeathSoundEffect);
+        }
+        Invoke("Destroy", 0.01f);
+    }
+    public void Destroy()
+    {
         Destroy(this.gameObject);
     }
 }

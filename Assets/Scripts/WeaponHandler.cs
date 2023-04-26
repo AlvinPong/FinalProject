@@ -14,11 +14,16 @@ public class WeaponHandler : MonoBehaviour
     protected Movement _movement;
 
     private PauseManager _pauseManager;
+
+    public AudioClip PickUpSoundEffect;
+    private AudioSource _audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         _movement = GetComponent<Movement>();
         _pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,9 +32,9 @@ public class WeaponHandler : MonoBehaviour
         if (_pauseManager.IsPause)
             _tryShoot = false;
         else
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
             _tryShoot = true;
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp(KeyCode.J))
             _tryShoot = false;
         if (!CurrentWeapon)
             return;
@@ -73,5 +78,9 @@ public class WeaponHandler : MonoBehaviour
     {
         if (weapon != null) 
             CurrentWeapon = weapon;
+        if (_audioSource != null && PickUpSoundEffect != null)
+        {
+            _audioSource.PlayOneShot(PickUpSoundEffect);
+        }
     }
 }

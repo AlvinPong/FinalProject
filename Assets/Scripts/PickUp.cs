@@ -5,7 +5,6 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     public GameObject WeaponPickUp;
-   
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Player"))

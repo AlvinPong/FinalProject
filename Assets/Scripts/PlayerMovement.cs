@@ -8,7 +8,7 @@ public class PlayerMovement : Movement
     {
         //if (!_isGrounded) { return; } //for stopping movement while in air
         _inputDirection = new Vector2(Input.GetAxis("Horizontal"), 0f);
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
         {
             DoJump();
         }

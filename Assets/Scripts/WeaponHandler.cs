@@ -32,9 +32,9 @@ public class WeaponHandler : MonoBehaviour
         if (_pauseManager.IsPause)
             _tryShoot = false;
         else
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z))
             _tryShoot = true;
-        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp(KeyCode.J))
+        if (Input.GetButtonUp("Fire1") || Input.GetKeyUp(KeyCode.J) || Input.GetKeyUp(KeyCode.Z))
             _tryShoot = false;
         if (!CurrentWeapon)
             return;

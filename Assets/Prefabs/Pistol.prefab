@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4879794644261632540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5496044, y: -1.8150002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.9664125, y: -2.7850125, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6890615147441264289}
@@ -54,7 +54,7 @@ MonoBehaviour:
     Duration: 0.1
     CurrentProgress: 3
   ShootSoundEffect: {fileID: 8300000, guid: 1239e38ac316856468a2e2fac45871f8, type: 3}
-  _isFlip: 0
+  _isFlip: 1
 --- !u!82 &-7654325371115930050
 AudioSource:
   m_ObjectHideFlags: 0
